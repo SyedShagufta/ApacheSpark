@@ -1,0 +1,52 @@
+# Naming variables
+my_variable = 10
+another_variable = "Hello, Python!"
+ 
+# Naming functions
+def add_numbers(a, b):
+    return a + b
+ 
+# Naming classes
+class MyClass:
+    def __init__(self, name):
+        self.name = name
+ 
+    def get_name(self):
+        return self.name
+ 
+# Naming constants (convention, not a strict rule)
+PI = 3.14
+GRAVITY = 9.8
+ 
+# Naming modules (file names)
+# File: my_module.py
+# Content: print("This is my module!")
+ 
+# Naming conventions:
+# - Use descriptive names: Choose names that convey the purpose or meaning of the variable, function, or class.
+# - Use underscores to separate words in variable and function names (snake_case).
+# - Use CamelCase for class names.
+# - Avoid using reserved words as identifiers (e.g., `if`, `else`, `class`).
+ 
+# Examples of bad practices:
+# 1. Avoid using reserved words:
+# if = 5  # This will result in a syntax error
+ 
+# 2. Avoid using spaces in names:
+# my variable = 10  # This will result in a syntax error
+ 
+# 3. Avoid starting variable names with numbers:
+# 1_variable = 5  # This is not allowed
+ 
+# 4. Avoid using special characters:
+# my-variable = 5  # Hyphen is not allowed in variable names
+ 
+# 5. Avoid using uppercase for variable and function names:
+# MyVariable = 10  # Use snake_case for variables and functions
+ 
+# 6. Avoid overly short names:
+# a = 5  # Instead, use a more descriptive name like 'count' or 'total'
+ 
+# Following these naming rules and conventions helps make your code more readable and maintainable.
+
+has context menu
