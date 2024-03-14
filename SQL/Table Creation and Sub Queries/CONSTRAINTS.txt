@@ -1,0 +1,11 @@
+alter table table_name add primary key (col_name);
+alter table emp add primary key (empID);
+ 
+alter table table_name add column column_name datatype;
+alter table table_name alter col_name set default 'value';
+ 
+alter table table_name modify col_name datatype not null;
+ 
+alter table table_name add constraint constraint_name foreign key (col_name) references ref_table_name(ref_col);
+
+alter table table_name add col_name datatype constraint con_name check (condition);
