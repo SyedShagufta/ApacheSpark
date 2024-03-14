@@ -1,0 +1,187 @@
+mysql> create table emp(
+    -> empid integer,
+    -> empname varchar(30),
+    -> dno integer
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+ 
+mysql> create table dept(
+    -> dno integer,
+    -> dname varchar(30)
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.04 sec)
+ 
+mysql> alter table emp add column salary integer;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+ 
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| empid   | int         | YES  |     | NULL    |       |
+| empname | varchar(30) | YES  |     | NULL    |       |
+| dno     | int         | YES  |     | NULL    |       |
+| salary  | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.04 sec)
+ 
+mysql> alter table emp add constraint cf1 primary key(empid);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+ 
+mysql> alter table dept add constraint cf2 primary key(dno);
+Query OK, 0 rows affected (0.19 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+ 
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| empid   | int         | NO   | PRI | NULL    |       |
+| empname | varchar(30) | YES  |     | NULL    |       |
+| dno     | int         | YES  |     | NULL    |       |
+| salary  | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+ 
+mysql> desc dept;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| dno   | int         | NO   | PRI | NULL    |       |
+| dname | varchar(30) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+ 
+mysql> alter table emp add constraint fk1 foreign key (dno) references dept(dno);
+Query OK, 0 rows affected (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+ 
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| empid   | int         | NO   | PRI | NULL    |       |
+| empname | varchar(30) | YES  |     | NULL    |       |
+| dno     | int         | YES  | MUL | NULL    |       |
+| salary  | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+ 
+mysql> insert into dept values(1,'sales');
+Query OK, 1 row affected (0.02 sec)
+ 
+mysql> insert into dept values(2,'purchase');
+Query OK, 1 row affected (0.01 sec)
+ 
+mysql> insert into emp values(1,'sachin',1,60000);
+Query OK, 1 row affected (0.01 sec)
+ 
+mysql> insert into emp values(2,'sehwag',2,50000);
+Query OK, 1 row affected (0.01 sec)
+ 
+mysql> insert into emp values(3,'rahul',2,55000);
+Query OK, 1 row affected (0.01 sec)
+ 
+mysql> insert into emp values(4,'rohit',1,45000);
+Query OK, 1 row affected (0.00 sec)
+ 
+mysql> insert into emp values(5,'kohli',1,35000);
+Query OK, 1 row affected (0.01 sec)
+ 
+mysql> select * from dept;
++-----+----------+
+| dno | dname    |
++-----+----------+
+|   1 | sales    |
+|   2 | purchase |
++-----+----------+
+2 rows in set (0.00 sec)
+ 
+mysql> select * from emp;
++-------+---------+------+--------+
+| empid | empname | dno  | salary |
++-------+---------+------+--------+
+|     1 | sachin  |    1 |  60000 |
+|     2 | sehwag  |    2 |  50000 |
+|     3 | rahul   |    2 |  55000 |
+|     4 | rohit   |    1 |  45000 |
+|     5 | kohli   |    1 |  35000 |
++-------+---------+------+--------+
+5 rows in set (0.00 sec)
+ 
+mysql> select empid,empname from emp where dno in (select dno from dept where dname='sales');
++-------+---------+
+| empid | empname |
++-------+---------+
+|     1 | sachin  |
+|     4 | rohit   |
+|     5 | kohli   |
++-------+---------+
+3 rows in set (0.01 sec)
+ 
+mysql> select empid,empname,salary from emp where salary = (select min(salary) from emp);
++-------+---------+--------+
+| empid | empname | salary |
++-------+---------+--------+
+|     5 | kohli   |  35000 |
++-------+---------+--------+
+1 row in set (0.01 sec)
+ 
+mysql> select empid,empname,salary from emp where dno = (select dno from emp group by dno having count(dno)>1);
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> select empid,empname,salary from emp where dno = (select dno from emp group by dno having count(dno)>2);
++-------+---------+--------+
+| empid | empname | salary |
++-------+---------+--------+
+|     1 | sachin  |  60000 |
+|     4 | rohit   |  45000 |
+|     5 | kohli   |  35000 |
++-------+---------+--------+
+3 rows in set (0.00 sec)
+ 
+List employees whose salary is greater than the average salary of their own dept.
+mysql> select empid,empname,salary from emp e1 where salary > (select avg(salary) from emp e2 where e2.dno = e1.dno);
++-------+---------+--------+
+| empid | empname | salary |
++-------+---------+--------+
+|     1 | sachin  |  60000 |
+|     3 | rahul   |  55000 |
++-------+---------+--------+
+2 rows in set (0.01 sec)
+ 
+mysql> select avg(salary) from emp;
++-------------+
+| avg(salary) |
++-------------+
+|  49000.0000 |
++-------------+
+1 row in set (0.00 sec)
+ 
+mysql> select avg(salary) from emp where dno=1;
++-------------+
+| avg(salary) |
++-------------+
+|  46666.6667 |
++-------------+
+1 row in set (0.00 sec)
+ 
+mysql> select avg(salary) from emp where dno=2;
++-------------+
+| avg(salary) |
++-------------+
+|  52500.0000 |
++-------------+
+1 row in set (0.00 sec)
+ 
+1. Display EmployeeName, Salary of employees whose salary is more than the average salary of the company
+2. Display EmployeeName, Salary of employee(s) who is getting the lowest salary in the company
+3. Display EmployeeName of employees who are working in project ‘P1’
+4. Display ProjectName of projects which has more than 2 employees (Exclude rows if end date is not null)
+5. Display EmployeeName of Managers who have more than three team members
+6. Display the second maximum salary of the company
+7. Display the ProjectName of projects which currently does not have any employees
+8. Display Employee Name, Salary of employees whose salary is more than the average salary of the department they belong to
+9. Display Employee Name of employees whose manager is younger than the employee

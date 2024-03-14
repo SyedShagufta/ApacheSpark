@@ -1,0 +1,96 @@
+--Data Insertion Script for Department Table
+ 
+ 
+INSERT INTO DEPARTMENT VALUES ('LKM', 'Learning and Knowledge Management');
+
+INSERT INTO DEPARTMENT VALUES ('JavaCap', 'Java Capability');
+
+INSERT INTO DEPARTMENT VALUES ('.NETCap', 'Dotnet Capability');
+
+commit;
+ 
+ 
+--Data Insertion Script for Project Table
+ 
+INSERT INTO PROJECT VALUES ('P1', 'Retail');
+
+INSERT INTO PROJECT VALUES ('P2', 'Insurance');
+
+INSERT INTO PROJECT VALUES ('P3', 'Resources');
+ 
+INSERT INTO PROJECT VALUES ('P4', 'Banking');
+
+INSERT INTO PROJECT VALUES ('P5', 'Internal Project');
+
+commit;
+ 
+ 
+--Data Insertion Script for Employee Table
+ 
+INSERT INTO EMPLOYEE VALUES (7001, 'Cynthya'   , '12-May-1975' ,  '14-Feb-1997' , 'CEO' , 800000.00 , 7001, NULL);
+
+INSERT INTO EMPLOYEE VALUES (7002, 'Mario'     , '14-Feb-1976' ,  '16-Apr-1998' , 'MD'  , 500000.00 , 7001, 'JavaCap');
+
+INSERT INTO EMPLOYEE VALUES (7003, 'Jacob'     , '16-May-1976' ,  '16-May-1998' , 'MD'  , 400000.00 , 7001, '.NETCap');
+
+INSERT INTO EMPLOYEE VALUES (7004, 'Lucy'      , '15-May-1978' ,  '15-Jul-2000' , 'MD'  , 420000.00  , 7001, 'LKM');
+
+INSERT INTO EMPLOYEE VALUES (7005, 'Amy'       , '16-Sep-1978' ,  '16-Nov-2000' , 'SM'  , 240000.00  , 7002, 'JavaCap');
+
+INSERT INTO EMPLOYEE VALUES (7006, 'Frank'     , '17-Sep-1978' ,  '19-Sep-2000' , 'SM'  , 220000.00 , '7003', '.NETCap');
+
+INSERT INTO EMPLOYEE VALUES (7007, 'Phil'      , '11-Dec-1974' ,  '12-Nov-2000' , 'SM'  , 220000.00  , '7004', 'LKM');
+
+INSERT INTO EMPLOYEE VALUES (7008, 'Arnold'    , '13-Mar-1984' ,  '01-Apr-2000' , 'TL'  , 80000.00  , '7005', 'JavaCap');
+
+INSERT INTO EMPLOYEE VALUES (7009, 'Jack'      , '23-Sep-1984' ,  '23-Jun-2000' , 'TL'  , 88000.00  , '7006', '.NETCap');
+
+INSERT INTO EMPLOYEE VALUES (7010, 'Justin'    , '07-Nov-1984' ,  '09-Feb-2000' , 'TL'  , 86000.00  , '7007', 'LKM');
+
+INSERT INTO EMPLOYEE VALUES (7011, 'Megan'     , '21-Jul-1984' ,  '19-Sep-2002' , 'TL'  , 87000.00  , '7007', 'LKM');
+
+INSERT INTO EMPLOYEE VALUES (7012, 'Stuart'    , '23-May-1980' ,  '22-May-2016' , 'SSE' , 35000.00    , '7008', 'JavaCap');
+
+INSERT INTO EMPLOYEE VALUES (7013, 'Clarke'    , '24-Feb-1994' ,  '22-May-2016' , 'SSE' , 32000.00    , '7008', 'JavaCap');
+
+INSERT INTO EMPLOYEE VALUES (7014, 'Darwin'    , '03-May-1992' ,  '22-May-2016' , 'SE' , '30000.00'    , '7009', '.NETCap');
+
+INSERT INTO EMPLOYEE VALUES (7015, 'Chelsea'   , '19-Jan-1994' ,  '22-May-2016' , 'SSE' , 38000.00    , '7010', 'LKM');
+
+INSERT INTO EMPLOYEE VALUES (7016, 'Dan'       , '27-May-1991' ,  '07-Jul-2016' , 'SE' , 30000.00    , '7009', '.NETCap');
+
+INSERT INTO EMPLOYEE VALUES (7017, 'Jimmy'     , '11-Aug-1993' ,  '07-Jul-2016' , 'SE' , 32000.00    , '7010', 'LKM');
+
+INSERT INTO EMPLOYEE VALUES (7018, 'James'     , '19-Dec-1993' ,  '07-Jul-2016' , 'SE' , 35000.00    , NULL, '.NETCap');
+
+INSERT INTO EMPLOYEE VALUES (7019, 'Joseph'    , '31-Dec-1992' ,  '07-Jul-2016' , 'SE' , 30000.00    , NULL, '.NETCap');
+
+commit;
+ 
+ 
+--Data Insertion Script for EmployeeProjects Table
+ 
+ 
+INSERT INTO EMPLOYEEPROJECTS VALUES (7005, 'P1', '01-Jul-2014', null);
+
+INSERT INTO EMPLOYEEPROJECTS VALUES (7006, 'P1', '01-Jun-2016', null);
+
+INSERT INTO EMPLOYEEPROJECTS VALUES (7004, 'P2', '16-Jul-2014', '11-May-2015');
+
+INSERT INTO EMPLOYEEPROJECTS VALUES (7013, 'P2', '01-Jul-2014', '11-Nov-2014');
+
+INSERT INTO EMPLOYEEPROJECTS VALUES (7012, 'P2', '01-Jun-2016', '28-Feb-2015');
+
+INSERT INTO EMPLOYEEPROJECTS VALUES (7007, 'P3', '11-May-2015', null);
+
+INSERT INTO EMPLOYEEPROJECTS VALUES (7014, 'P3', '11-Nov-2014', null);
+
+INSERT INTO EMPLOYEEPROJECTS VALUES (7013, 'P3', '28-Feb-2015', null);
+
+INSERT INTO EMPLOYEEPROJECTS VALUES (7016, 'P2', '16-Jul-2014', null);
+
+INSERT INTO EMPLOYEEPROJECTS VALUES (7012, 'P1', '01-Mar-2015', null);
+
+Commit;
+
+designation, salary, managerEmployeeNumber, departmentCode
