@@ -1,0 +1,74 @@
+pwd - present working directory
+cd ../.. - change directory from current to root dir
+cd ~ - change directory from current to home dir
+cd .. - changing directory from current dir to its immediate parent dir
+cd nootan - changing current dir to nootan dir
+ls : listing files and directories
+ls -l : listing files and directories with information
+ls -a : list hidden files and directories also
+ls -R : list files and directories with its subfiles and subdirectories
+ls -t : list files and directories into sorted order according to the last modification timestamp
+mkdir - creating directory
+rmdir - removing directory (only if dir is empty)
+who - lists users logged in into the system with terminal name and login date and time
+who -q - no. of users
+who -m - terminal 
+which - location path of the particular command
+man - manual pages
+
+
+Exercise 
+
+refer general commands available in this ppt
+and complete the exc :
+
+1. manual page for cat command
+
+2. create directory mydir
+
+3. create four directories under mydir : mydir1, mydir2, mydir3, mydir4
+
+4. create file under mydir1 = hello.txt 
+
+	cat > hello.txt
+
+	<enter some sentences>
+
+	ctrl+z
+
+5. remove directories mydir3 and mydir4
+
+6. remove directory mydir1
+
+7. go to home directory
+
+8. go to root directory
+
+9. again open terminal and print the information about the users who logged in 
+
+10. print the location of the grep command
+
+11. list the files and directories available in the home dir
+
+12. list the files and directories available in the root dir
+
+13. list the files,directories and subdirectories available in the home dir
+
+14. list the files and directories with its information
+
+15. go to mydir1 and then use the command cd ..
+
+
+Activity time: 10 minutes
+–Use General Purpose and File Manipulation Commands
+–
+•Instructions:
+–Create a file named TestFileCommandwith at least ten lines and perform the following tasks on the file:
+•Rename the file TestFileCommandto cmdTest.
+•Change the permissions of the file for following:
+–User – read, write, and execute
+–Group – read
+–Others – read and execute
+•List the first three lines of the file.
+•List all the lines after line four.
+•Create a soft link to the file cmdTestwith name cmdTestLn.
