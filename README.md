@@ -1,7 +1,7 @@
 # ApacheSpark
 
 ## Description: 👇
-Welcome to ApacheSpark repo, my go-to repository for learning and storing notes, presentations, code snippets, and concepts related to Apache Spark, particularly focusing on PySpark - the Python API for Apache Spark. Whether you're a beginner or an experienced developer looking to delve deeper into distributed computing with Spark, this repository aims to provide comprehensive resources to enhance your understanding.
+Welcome to ApacheSpark repo, my go-to repository for learning and storing notes, presentations, code snippets, and concepts related to Python, MySQL, Apache Spark, particularly focusing on PySpark - the Python API for Apache Spark. Whether you're a beginner or an experienced developer looking to delve deeper into distributed computing with Spark, this repository aims to provide comprehensive resources to enhance your understanding.
 
 ## Contents: 🎯
 - Introduction to Apache Spark and PySpark
